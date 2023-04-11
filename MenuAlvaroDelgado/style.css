@@ -1,0 +1,294 @@
+body{
+    background-color: #97c7d3;
+    background-image: url(image/fondo-menu.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1{
+    color: #fff;
+    font-family:Impact, Haettenschweiler, 'Open Sans', sans-serif;
+    font-style:italic;
+    font-weight: 400;
+    font-size: 70px;
+    margin-left: 350px;
+}
+.container{
+    width: 1000px;
+    margin: auto;
+    transition: 0.5s;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    margin-top: 50px;
+}
+header .shopping{
+    position: relative;
+    text-align: right;
+}
+header .shopping img{
+    width: 80px;
+}
+header .shopping span{
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 5px 10px;
+}
+.list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    margin-top: 50px;
+}
+.list .item{
+    text-align: center;
+    background-color: #DCE0E1;
+    padding: 20px;
+    box-shadow: 0 50px 50px #757676;
+    letter-spacing: 1px;
+}
+.list .item img{
+    width: 90%;
+}
+.list .item .title{
+    font-weight: 600;
+    font-family: 'Molluca';
+}
+.list .item .price{
+    margin: 10px;
+}
+.list .item button{
+    background-color: #1C1F25;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
+.card{
+    border-radius: 50px;
+    position: fixed;
+    top:0;
+    left: 100%;
+    width: 500px;
+    background-color: #453E3B;
+    height: 100vh;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.active .card{
+    left: calc(100% - 500px);
+}
+.active .container{
+   transform: translateX(-200px);
+}
+.card h1{
+    font-style: italic;
+    font-family:Impact, Haettenschweiler, 'Open Sans', sans-serif;
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    margin-left: 11%;
+}
+.card.checkOut.total{
+    align-content: center;
+    display: flex;
+    width: auto;
+    margin-top: 0%;
+}
+.totalstring{
+    color: #fff;
+    font-family:Impact, Haettenschweiler, 'Open Sans', sans-serif;
+    font-style:italic;
+    font-size: 45px;
+    margin-left: 0px;
+    margin-right: 5px ;
+    justify-content: center;
+    text-align: center;
+}
+
+.card .checkOut{
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+.card .checkOut.total{
+    background-color: #0a0a0a;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0%;
+    margin-bottom: 2px;
+    margin-right: 20px;
+}
+
+  button.checkout{
+    border-radius: 25px;
+    background-color: #4dd354; 
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+.closeShopping{
+   
+    border-radius: 25px;
+    background-color: #ce2222; 
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.card .checkOut div:nth-child(3){
+    background-color: #1C1F25;
+    color: #fff;
+}
+.listCard{
+    overflow-y: scroll;
+    height: 300px;
+    scroll-behavior: smooth;
+    scrollbar-color: #E8BC0E;
+    scrollbar-width: 100px;
+}
+.listCard li{
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+    
+}
+.listCard li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listCard .imagen-carro {
+    width: 200%;
+  }
+.listCard li img{
+    
+    width: 100%;
+    height: 50%;
+    border-radius: 5%;
+}
+.listCard li button{
+    background-color: #fff5;
+    border: none;
+}
+.listCard .count{
+    margin: 0 10px;
+}
+img{
+    width: 150%;
+    height: 70%;
+    border-radius: 5%;
+}
+
+.nombre-pedido{
+
+    color: #E8BC0E;
+    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style:italic;
+    font-weight: 50px;
+    padding-left: 30px;
+}
+
+.btn-cantidad{
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cantidad:hover {
+    background-color: #f0f0f0;
+    color: #000000;
+  }
+  
+
+  .alert{
+    background-color: #b2d8b2;
+    border: 2px solid #2e8b57;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  /* Estilos para dispositivos móviles */
+  @media screen and (max-width: 375px) {
+    /* Ocultar la barra de navegación en pantallas pequeñas */
+    .navbar {
+      display: none;
+    }
+  
+    /* Ajustar el tamaño de la imagen del producto */
+    .item img {
+      width: 80%;
+    }
+  
+    /* Ajustar el tamaño de la fuente */
+    .item .title {
+      font-size: 1rem;
+    }
+  
+    /* Ajustar el tamaño de los botones */
+    .item button {
+      font-size: 0.8rem;
+    }
+  
+    /* Ajustar el tamaño de la imagen del carrito */
+    .listCard .imagen-carro {
+      width: 50%;
+    }
+  
+    /* Ajustar el tamaño de la fuente del nombre del producto en el carrito */
+    .listCard .nombre-pedido {
+      font-size: 0.8rem;
+    }
+  
+    /* Ajustar el tamaño de los botones en el carrito */
+    .listCard button {
+      font-size: 0.6rem;
+    }
+  }
+  
