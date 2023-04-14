@@ -121,10 +121,10 @@ header .shopping span{
     top:0;
     left: 100%;
     margin-bottom: 40px;
-    width: 500px;
-    background-color: #453E3B;
+    width: 50%;
+    background-color:black;
     height: 100vh;
-    transition: 0.5s;
+    transition: 1s;
     display: flex;
     flex-direction:column;
     gap: 0;
@@ -153,7 +153,7 @@ header .shopping span{
 .card h1{
     font-style: italic;
     font-family:Impact, Haettenschweiler, 'Open Sans', sans-serif;
-    color: whitesmoke;
+    color: #FFC229;
     font-weight: 100;
     margin: 0;
     padding: 0 20px;
@@ -170,7 +170,7 @@ header .shopping span{
     margin-top: 0%;
 }
 .totalstring{
-    color: whitesmoke;
+    color: #FFC229;
     font-family:Impact, Haettenschweiler, 'Open Sans', sans-serif;
     font-style:italic;
     font-size: 45px;
