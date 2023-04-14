@@ -4,11 +4,14 @@ $product_id = $_POST['product_id'];
 $product_name = $_POST['product_name'];
 $product_price = $_POST['product_price'];
 $product_image = $_POST['product_image'];
+
+// Define the username and password for your MySQL database
+$username = "alvaro";
+$password = "1234";
+
 // Create a new database connection
 $servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
+$dbname = "orders";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check the connection
