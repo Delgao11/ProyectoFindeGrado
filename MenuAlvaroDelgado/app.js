@@ -130,14 +130,14 @@ let products = [
     
     {
         id: 17,
-        name: 'Maki Tempura Gamba (6ud)',
+        name: 'Maki Tempura  Gamba (6ud)',
         image: 'Maki-Aguacate-Tempura-Gamba.png',
         price: 6.00
     },
 
     {
         id: 18,
-        name: 'Maki Tempura Atun (4ud)',
+        name: 'Maki Tempura Atun  Picante (4ud)',
         image: 'MAKI-ATUN-CROCANTE-Y-PICANTE.jpg',
         price: 4.50
     },
