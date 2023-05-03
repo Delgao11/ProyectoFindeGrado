@@ -44,7 +44,7 @@ function cargarProductos(productosElegidos) {
 }
 
 
-
+/*Actualiza los botones de "añadir al carrito" en la página cada vez que se agregue un producto al carrito. */
 function actualizarBotonesAgregar() {
     botonesAgregar = document.querySelectorAll(".producto-agregar");
 
@@ -64,8 +64,11 @@ if (productosEnCarritoLS) {
     productosEnCarrito = [];
 }
 
+/* Agrega un producto al carrito, muestra una notificación y actualiza el número de productos en el carrito. 
+También guarda la información de los productos en el carrito en el almacenamiento local. */
 function agregarAlCarrito(e) {
 
+   
     Toastify({
         text: "Producto añadido",
         duration: 3000,
@@ -85,7 +88,7 @@ function agregarAlCarrito(e) {
           },
         onClick: function(){} // Callback after click
       }).showToast();
-
+       /*El método showToast() es utilizado para mostrar la notificación en la pantalla. */
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
@@ -96,12 +99,12 @@ function agregarAlCarrito(e) {
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
     }
-
+  
     actualizarNumerito();
 
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
-
+  /*Actualiza el número de productos en el carrito que se muestra en el icono del carrito. */
 function actualizarNumerito() {
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
     numerito.innerText = nuevoNumerito;

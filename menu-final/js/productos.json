@@ -363,7 +363,7 @@
             "nombre": "restos",
             "id": "resto"
         },
-        "precio": 4
+        "precio": 6
     },
 
     {
@@ -374,7 +374,7 @@
             "nombre": "restos",
             "id": "resto"
         },
-        "precio": 4
+        "precio": 6
     },
     {
         "id": "resto-11",
@@ -384,7 +384,7 @@
             "nombre": "restos",
             "id": "resto"
         },
-        "precio": 5
+        "precio": 8.50
     },
     {
         "id": "resto-12",
@@ -394,7 +394,7 @@
             "nombre": "restos",
             "id": "resto"
         },
-        "precio": 5
+        "precio": 8.50
     },
     {
         "id": "resto-13",
@@ -404,7 +404,7 @@
             "nombre": "restos",
             "id": "resto"
         },
-        "precio": 29
+        "precio": 35
     }
     
 ]
