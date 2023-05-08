@@ -1,0 +1,410 @@
+[
+    {
+        "id": "bebida-01",
+        "titulo": "AGUA",
+        "imagen": "./img/bebidas/agua.png",
+        "categoria": {
+            "nombre": "agua",
+            "id": "agua"
+        },
+        "precio": 2
+    },
+    {
+        "id": "bebida-02",
+        "titulo": "FANTA DE NARANJA",
+        "imagen": "./img/bebidas/fanta-de-naranja.jpg",
+        "categoria": {
+            "nombre": "fanta-naranja",
+            "id": "fanta-naranja"
+        },
+        "precio": 2
+    },
+    {
+        "id": "bebida-03",
+        "titulo": "FANTA DE LIMON",
+        "imagen": "./img/bebidas/fanta-de-limon.jpg",
+        "categoria": {
+            "nombre": "agua",
+            "id": "agua"
+        },
+        "precio": 2
+    },
+    {
+        "id": "bebida-04",
+        "titulo": "COCACOLA",
+        "imagen": "./img/bebidas/coca-cola-lata-normal.jpg",
+        "categoria": {
+            "nombre": "agua",
+            "id": "agua"
+        },
+        "precio": 2
+    },
+    
+    {
+        "id": "bebida-05",
+        "titulo": "COCACOLA LIGHT",
+        "imagen": "./img/bebidas/coca-cola-light.jpg",
+        "categoria": {
+            "nombre": "agua",
+            "id": "agua"
+        },
+        "precio": 2
+    },
+  
+    {
+        "id": "bebida-06",
+        "titulo": "CocaCola Zero",
+        "imagen": "./img/bebidas/coca-cola-zero.jpg",
+        "categoria": {
+            "nombre": "agua",
+            "id": "agua"
+        },
+        "precio": 2
+    },
+
+    {
+        "id": "bebida-07",
+        "titulo": "AQUARIUS",
+        "imagen": "./img/bebidas/aquarius-naranja.jpg",
+        "categoria": {
+            "nombre": "agua",
+            "id": "agua"
+        },
+        "precio": 2
+    },
+    {
+        "id": "maki-01",
+        "titulo": "MAKI AGUACATE 6uds",
+        "imagen": "./img/makis/maki_aguacate.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 4
+    },
+    {
+        "id": "maki-02",
+        "titulo": "MAKI ATÚN 6uds",
+        "imagen": "./img/makis/maki_atun.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 4
+    },
+    {
+        "id": "maki-03",
+        "titulo": "MAKI SALMON 6uds",
+        "imagen": "./img/makis/maki_salmon.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 4
+    },
+    {
+        "id": "maki-04",
+        "titulo": "MAKI SAFARI 6uds",
+        "imagen": "./img/makis/maki_safari.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 4.50
+    },
+    {
+        "id": "maki-05",
+        "titulo": "MAKI ATÚN PICANTE 6uds",
+        "imagen": "./img/makis/MAKI-ATUN-CROCANTE-Y-PICANTE.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 4.50
+    },
+    {
+        "id": "maki-06",
+        "titulo": "MAKI SALMON AGUACATE 6uds",
+        "imagen": "./img/makis/maki-salmon-aguacate.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 4.50
+    },
+   
+     {
+        "id": "maki-07",
+        "titulo": "MAKI GAMBA TEMPURA 6uds",
+        "imagen": "./img/makis/Maki-Aguacate-Tempura-Gamba.png",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 4.50
+    },
+    {
+        "id": "maki-08",
+        "titulo": "MAKI SALMON TEMPURA 6uds",
+        "imagen": "./img/makis/maki-tempura-salmon.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+    {
+        "id": "maki-09",
+        "titulo": "ENOKI HAMICHI 6uds",
+        "imagen": "./img/makis/Enoki-Hamachi.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+    {
+        "id": "maki-10",
+        "titulo": "MAKI ESPARRAGOS 6uds",
+        "imagen": "./img/makis/Makis-Esparragos.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+    {
+        "id": "maki-11",
+        "titulo": "MAKI SPICY CRAB 6uds",
+        "imagen": "./img/makis/Spicy-Crab.png",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+
+ 
+    {
+        "id": "maki-12",
+        "titulo": "SAKE IKURA 6uds",
+        "imagen": "./img/makis/Sake-Ikura.png",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+    {
+        "id": "maki-13",
+        "titulo": "CALIFORNIA ROLL 6uds",
+        "imagen": "./img/makis/California-Roll.png",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+    {
+        "id": "maki-14",
+        "titulo": "NEGI HAMA 6uds",
+        "imagen": "./img/makis/Negi-Hama.png",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+   
+    {
+        "id": "maki-15",
+        "titulo": "SAKANA SAN SHU 6uds",
+        "imagen": "./img/makis/Sakana-San-Shu.png",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+
+    {
+        "id": "maki-16",
+        "titulo": "SHIITAKE 6uds",
+        "imagen": "./img/makis/Shiitake.jpg",
+        "categoria": {
+            "nombre": "Makis",
+            "id": "maki"
+        },
+        "precio": 5
+    },
+
+   
+    {
+        "id": "nigiri-01",
+        "titulo": "NIGIRI ATÚN 6uds",
+        "imagen": "./img/nigiri/nigiri_atun.jpg",
+        "categoria": {
+            "nombre": "Nigiris",
+            "id": "nigiri"
+        },
+        "precio": 4
+    },
+
+    {
+        "id": "nigiri-02",
+        "titulo": "NIGIRI SALMON 6uds",
+        "imagen": "./img/nigiri/nigirisalmon.jpg",
+        "categoria": {
+            "nombre": "Nigiris",
+            "id": "nigiri"
+        },
+        "precio": 4
+    },
+    {
+        "id": "nigiri-03",
+        "titulo": "NIGIRI GAMBA 6uds",
+        "imagen": "./img/nigiri/nigiri_gamba.jpg",
+        "categoria": {
+            "nombre": "Nigiris",
+            "id": "nigiri"
+        },
+        "precio": 4
+    },
+    {
+        "id": "resto-01",
+        "titulo": "TEMAKI",
+        "imagen": "./img/resto/temaki.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 2
+    },
+    {
+        "id": "resto-02",
+        "titulo": "GYOZA 12uds",
+        "imagen": "./img/resto/Gyozas-12.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 7
+    },
+
+
+    {
+        "id": "resto-03",
+        "titulo": "POLLO CON ALMENDRAS",
+        "imagen": "./img/resto/pollo-almendras.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 4
+    },
+    {
+        "id": "resto-04",
+        "titulo": "SOPA MISO",
+        "imagen": "./img/resto/sopamiso.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 4
+    },
+
+    {
+        "id": "resto-05",
+        "titulo": "RAMEN",
+        "imagen": "./img/resto/ramen.jpeg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 6
+    },
+  
+    {
+        "id": "resto-06",
+        "titulo": "KATSU DE POLLO",
+        "imagen": "./img/resto/Katsu-de-pollo.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 3
+    },
+
+    {
+        "id": "resto-07",
+        "titulo": "PAN BAO 4uds",
+        "imagen": "./img/resto/Receta-de-pan-Baozi-min.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 3
+    },
+    {
+        "id": "resto-08",
+        "titulo": "ARROZ FRITO",
+        "imagen": "./img/resto/arrozfrito.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 3
+    },
+    {
+        "id": "resto-09",
+        "titulo": "SASHIMI SALMON",
+        "imagen": "./img/resto/plato-sashimi-salmon.png",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 6
+    },
+
+    {
+        "id": "resto-10",
+        "titulo": "SASHIMI ATÚN",
+        "imagen": "./img/resto/sashimi-atun.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 6
+    },
+    {
+        "id": "resto-11",
+        "titulo": "TARTAR DE ATÚN",
+        "imagen": "./img/resto/tartar-de-atun.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 8.50
+    },
+    {
+        "id": "resto-12",
+        "titulo": "TARTAR DE SALMON",
+        "imagen": "./img/resto/tartardeSalmon.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 8.50
+    },
+    {
+        "id": "resto-13",
+        "titulo": "SUSHICHET 40uds",
+        "imagen": "./img/resto/sushichet40ud.jpg",
+        "categoria": {
+            "nombre": "restos",
+            "id": "resto"
+        },
+        "precio": 35
+    }
+    
+]
