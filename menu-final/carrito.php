@@ -13,23 +13,24 @@
 require('conexion.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["productos"])) {
-        $productos = $_POST["productos"];
+    $productosJSON = $_POST["productos"];
+    $productos = json_decode($productosJSON);
 
+    if (isset($productos)) {
         $mesa = filter_var($_POST["mesa"], FILTER_SANITIZE_NUMBER_INT);
 
         if ($mesa >= 1 && $mesa <= 15) {
-            $tabla = "mesa01" . str_pad($mesa, 2, "0", STR_PAD_LEFT);
+            $tabla = "pedidomesa" . str_pad($mesa, 2, "0", STR_PAD_LEFT);
 
             foreach ($productos as $producto) {
                 $titulo = $producto->titulo;
                 $precio = $producto->precio;
                 $cantidad = $producto->cantidad;
 
-                $stmt = $conn->prepare("INSERT INTO $tabla (titulo, precio, cantidad) VALUES (?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO $tabla (codigomesa, titulo, precio, cantidad) VALUES (?, ?, ?, ?)");
 
                 if ($stmt) {
-                    $stmt->bind_param("sss", $titulo, $precio, $cantidad);
+                    $stmt->bind_param("ssis", $mesa, $titulo, $precio, $cantidad);
                     if (!$stmt->execute()) {
                         echo "Error al guardar los datos: " . $stmt->error;
                     }
@@ -39,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
 
-            echo "Los datos se han guardado en la base de datos.";
+            echo "success";
         } else {
             echo "Número de mesa inválido.";
         }
@@ -48,6 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+
+
 
 
 

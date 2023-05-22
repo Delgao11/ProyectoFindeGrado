@@ -6,7 +6,7 @@ $json = file_get_contents('php://input');
 $data = json_decode($json);
 
 // Preparar la consulta SQL
-$stmt = $conn->prepare("INSERT INTO mesa01 (titulo, precio, cantidad) VALUES (?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO pedidomesa (codigomesa, titulo, precio, cantidad) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssi", $data->titulo, $data->precio, $data->cantidad);
 
 // Ejecutar la consulta SQL

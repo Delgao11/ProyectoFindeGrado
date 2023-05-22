@@ -19,11 +19,11 @@ function cargarProductosCarrito() {
         contenedorCarritoProductos.classList.remove("disabled");
         contenedorCarritoAcciones.classList.remove("disabled");
         contenedorCarritoComprado.classList.add("disabled");
-    
+
         contenedorCarritoProductos.innerHTML = "";
-    
-        productosEnCarrito.forEach(producto => {
-    
+
+        productosEnCarrito.forEach((producto, index) => {
+
             const div = document.createElement("div");
             div.classList.add("carrito-producto");
             div.innerHTML = `
@@ -40,170 +40,151 @@ function cargarProductosCarrito() {
                     <small>Precio</small>
                     <p>${producto.precio}€</p>
                 </div>
-                <div class="carrito-producto-subtotal">
-                    <small>Subtotal</small>
-                    <p>${producto.precio * producto.cantidad}€</p>
+                <div class="carrito-producto-eliminar">
+                    <button class="boton boton-rojo">
+                        <i class="fas fa-trash-alt"></i>
+                        Eliminar
+                    </button>
                 </div>
-                <button class="carrito-producto-eliminar" id="${producto.id}"><i class="bi bi-trash-fill"></i></button>
             `;
-    
-            contenedorCarritoProductos.append(div);
-        })
-    
-    actualizarBotonesEliminar();
-    actualizarTotal();
-	
+            contenedorCarritoProductos.appendChild(div);
+        });
+
+        botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar button");
+
+        botonesEliminar.forEach((boton, index) => {
+            boton.addEventListener("click", () => {
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "Este producto se eliminará del carrito",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        eliminarProducto(index);
+                        Swal.fire(
+                            'Eliminado',
+                            'El producto ha sido eliminado del carrito',
+                            'success'
+                        );
+                    }
+                });
+            });
+        });
+
+        calcularTotal();
+
     } else {
         contenedorCarritoVacio.classList.remove("disabled");
         contenedorCarritoProductos.classList.add("disabled");
         contenedorCarritoAcciones.classList.add("disabled");
         contenedorCarritoComprado.classList.add("disabled");
     }
-
 }
 
-cargarProductosCarrito();
-
-/*Actualiza los botones de eliminar producto en el carrito para que sean funcionales. 
-    Esta función se llama después de que se cargan los productos del carrito. */
-function actualizarBotonesEliminar() {
-    botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
-
-    botonesEliminar.forEach(boton => {
-        boton.addEventListener("click", eliminarDelCarrito);
-    });
-}
-/* Es la que se encarga de eliminar un producto del carrito. 
-Esta función recibe un evento "click" y elimina el producto seleccionado del arreglo de productos en el carrito utilizando la función splice(). 
-Después de eliminar el producto, la función carga de nuevo los productos del carrito, actualiza los botones y el total, 
-y guarda los productos actualizados en el almacenamiento local.*/ 
-function eliminarDelCarrito(e) {
-    Toastify({
-        text: "Producto eliminado",
-        duration: 3000,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-          background: "linear-gradient(to right, #4b33a8, #785ce9)",
-          borderRadius: "2rem",
-          textTransform: "uppercase",
-          fontSize: ".75rem"
-        },
-        offset: {
-            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
-          },
-        onClick: function(){} // Callback after click
-      }).showToast();
-
-    const idBoton = e.currentTarget.id;
-    const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
-    
+function eliminarProducto(index) {
     productosEnCarrito.splice(index, 1);
-    cargarProductosCarrito();
-
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    cargarProductosCarrito();
+}
 
+function vaciarCarrito() {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Se vaciará todo el carrito",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, vaciar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            productosEnCarrito = [];
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+            cargarProductosCarrito();
+            Swal.fire(
+                'Vacío',
+                'El carrito ha sido vaciado',
+                'success'
+            );
+        }
+    });
 }
 
 botonVaciar.addEventListener("click", vaciarCarrito);
-function vaciarCarrito() {
 
-    Swal.fire({ /* Esta alerta te pregunta para confirmar el borrado del carrito */
-        title: '¿Estás seguro?',
-        icon: 'question',
-        html: `Se van a borrar ${productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0)} productos.`,
+function calcularTotal() {
+    let total = 0;
+
+    productosEnCarrito.forEach(producto => {
+        const precio = parseFloat(producto.precio);
+        const cantidad = producto.cantidad;
+        total += precio * cantidad;
+    });
+
+    contenedorTotal.innerHTML = `Total: ${total.toFixed(2)}€`;
+}
+
+botonComprar.addEventListener("click", () => {
+    Swal.fire({
+        title: 'Ingrese el número de la mesa',
+        input: 'number',
+        inputAttributes: {
+            min: 1,
+            max: 15
+        },
         showCancelButton: true,
-        focusConfirm: false,
-        confirmButtonText: 'Sí',
-        cancelButtonText: 'No'
+        confirmButtonText: 'Comprar',
+        cancelButtonText: 'Cancelar',
+        showLoaderOnConfirm: true,
+        preConfirm: (mesa) => {
+            if (mesa) {
+                const formData = new FormData();
+                formData.append("productos", JSON.stringify(productosEnCarrito));
+                formData.append("mesa", mesa);
+
+                return fetch("carrito.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    return response.text();
+                })
+                .catch(error => {
+                    Swal.showValidationMessage(
+                        `Request failed: ${error}`
+                    );
+                });
+            }
+        },
+        allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
-        if (result.isConfirmed) {
-            productosEnCarrito.length = 0;
-            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-            cargarProductosCarrito();
+        if (result.isConfirmed && result.value === "success") {
+            Swal.fire(
+                'Compra realizada',
+                'Su pedido se ha enviado correctamente',
+                'success'
+            ).then(() => {
+                productosEnCarrito = [];
+                localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+                cargarProductosCarrito();
+            });
+        } else if (result.isConfirmed && result.value !== "success") {
+            Swal.fire(
+                'Error',
+                `Ha ocurrido un error: ${result.value}`,
+                'error'
+            );
         }
-      })
-}
-fetch('insertar_producto.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'js/productos.json'
-    },
-    body: JSON.stringify({
-      titulo: productosEnCarrito[0].titulo,
-      precio: productosEnCarrito[0].precio
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    productosEnCarrito.length = 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-    cargarProductosCarrito();
-  })
-  .catch(error => console.error(error));
-  
+    });
+});
 
-/*Se encarga de calcular y mostrar el total de la compra. 
-Esta función se llama después de cargar los productos y después de eliminar o vaciar productos del carrito. */
-function actualizarTotal() {
-    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
-    total.innerText = `${totalCalculado}€`;
-}
-/* Se encarga de "comprar" los productos del carrito, eliminando todos los productos del carrito y mostrando un mensaje de confirmación de compra.*/ 
-botonComprar.addEventListener("click", comprarCarrito);
-
-function comprarCarrito() {
-  Swal.fire({
-    title: "¿Estás seguro?",
-    icon: "question",
-    html: `Se van a pedir ${productosEnCarrito.reduce(
-      (acc, producto) => acc + producto.cantidad,
-      0
-    )} productos.`,
-    showCancelButton: true,
-    focusConfirm: false,
-    confirmButtonText: "Sí",
-    cancelButtonText: "No",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      guardarPedidoEnBaseDeDatos();
-    } else {
-      cargarProductosCarrito();
-    }
-  });
-}
-
-function guardarPedidoEnBaseDeDatos() {
-  const datos = {
-    titulo: productosEnCarrito[0].titulo,
-    precio: productosEnCarrito[0].precio,
-  };
-
-  fetch('insertar_producto.php', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        productos: productosEnCarrito,
-        mesa: 1 // Reemplazar con el número de mesa correcto
-    })
-})
-.then(response => response.text())
-.then(data => {
-    console.log(data);
-    productosEnCarrito.length = 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-    cargarProductosCarrito();
-})
-.catch(error => console.error(error));
-
-
-}
-
-
-
+cargarProductosCarrito();
