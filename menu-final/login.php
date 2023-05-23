@@ -76,15 +76,15 @@
     <?php
       // Verifica si hay un mensaje para mostrar
       if (!empty($tipoMensaje) && !empty($mensaje)) {
-        // Muestra la alerta con Sweet Alert
-        echo '<script>
+        // Muestra la alerta según el tipo de mensaje
+        echo "<script>
           swal({
-            title: "Error",
-            text: "' . $mensaje . '",
-            icon: "' . $tipoMensaje . '",
-            button: "OK",
+            title: '" . ucfirst($tipoMensaje) . "',
+            text: '$mensaje',
+            icon: '$tipoMensaje',
+            button: 'Aceptar'
           });
-        </script>';
+        </script>";
       }
     ?>
 </body>

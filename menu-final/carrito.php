@@ -5,18 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Urasawa</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-icbq6l0pfQ28eVL96KhukdKDBtr2VvjGqxgco1BE5Ow1b2M2QsRmBke3vK6jI6s+DcXeE4Jb60YgQmE/dytn1Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <?php
 require('conexion.php');
 
+$response = ""; // Variable para almacenar la respuesta
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productosJSON = $_POST["productos"];
     $productos = json_decode($productosJSON);
-
     if (isset($productos)) {
+        
         $mesa = filter_var($_POST["mesa"], FILTER_SANITIZE_NUMBER_INT);
 
         if ($mesa >= 1 && $mesa <= 15) {
@@ -26,29 +28,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $titulo = $producto->titulo;
                 $precio = $producto->precio;
                 $cantidad = $producto->cantidad;
-
+            
                 $stmt = $conn->prepare("INSERT INTO $tabla (codigomesa, titulo, precio, cantidad) VALUES (?, ?, ?, ?)");
-
+            
                 if ($stmt) {
-                    $stmt->bind_param("ssis", $mesa, $titulo, $precio, $cantidad);
+                    $stmt->bind_param("isii", $mesa, $titulo, $precio, $cantidad); // Cambio de "ssis" a "isii" para el tipo de dato correcto
                     if (!$stmt->execute()) {
-                        echo "Error al guardar los datos: " . $stmt->error;
+                        $response = "Error al guardar los datos: " . $stmt->error;
+                        break; // Salir del bucle si ocurre un error
                     }
                     $stmt->close();
                 } else {
-                    echo "Error al preparar la consulta: " . $conn->error;
+                    $response = "Error al preparar la consulta: " . $conn->error;
+                    break; // Salir del bucle si ocurre un error
                 }
             }
+            
 
-            echo "success";
+            // Si no hubo errores, la respuesta será "success"
+            if ($response === "") {
+                $response = "success";
+            }
         } else {
-            echo "Número de mesa inválido.";
+            $response = "Número de mesa inválido.";
         }
     }
 }
 
 $conn->close();
+
+if (empty($productos) && $response === "success") {
+    echo '<script>window.location.href = "./carrito.php";</script>';
+    exit();
+}
+
+echo $response; // Devolver la respuesta al cliente
 ?>
+
 
 
 
@@ -93,6 +109,8 @@ $conn->close();
             <h2 class="titulo-principal">Carrito</h2>
             <div class="contenedor-carrito">
                 <p id="carrito-vacio" class="carrito-vacio">Tu carrito está vacío. <i class="bi bi-emoji-frown"></i></p>
+                <a href="javascript:history.back()" class="boton-boton-secundario" id="volverBtn">Volver</a>
+
 
                 <div id="carrito-productos" class="carrito-productos disabled">
                     <!-- Esto se va a completar con el JS -->
