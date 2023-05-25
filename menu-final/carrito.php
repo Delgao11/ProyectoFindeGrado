@@ -11,6 +11,7 @@
 </head>
 <?php
 require('conexion.php');
+session_start();
 
 $response = ""; // Variable para almacenar la respuesta
 
@@ -23,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($mesa >= 1 && $mesa <= 15) {
             $tabla = "pedidomesa" . str_pad($mesa, 2, "0", STR_PAD_LEFT);
+            $productosJSON = $_POST["productos"];
+            $productos = json_decode($productosJSON);
 
             foreach ($productos as $producto) {
                 $titulo = $producto->titulo;
@@ -75,7 +78,7 @@ echo $response; // Devolver la respuesta al cliente
     
     <div class="wrapper">
         <header class="header-mobile">
-            <h1 class="logo">Menú Urasawa</h1>
+            <h1 class="logo">Menú Urasawa <i class="bi bi-emoji-laughing"></i></h1>
             <button class="open-menu" id="open-menu">
                 <i class="bi bi-list"></i> <!--Muestra el icono de lista de Bootstrap.-->
             </button>
@@ -116,6 +119,8 @@ echo $response; // Devolver la respuesta al cliente
                     <!-- Esto se va a completar con el JS -->
                 </div>
 
+                <!-- Creo un div que sea el de los pedidos anteriores y que cuando  le de al boton de comprar,los elementos que esten ene el carrito los pego en el nuevo div  y luego  vacio el carrito -->
+
                 <div id="carrito-acciones" class="carrito-acciones disabled">
                     <div class="carrito-acciones-izquierda">
                         <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar carrito</button>
@@ -128,6 +133,8 @@ echo $response; // Devolver la respuesta al cliente
                         <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Pedir ahora</button>
                     </div>
                 </div>
+
+                <?php var_dump($_SESSION); ?>
 
                 <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por tu pedido. <i class="bi bi-emoji-laughing"></i></p>
 

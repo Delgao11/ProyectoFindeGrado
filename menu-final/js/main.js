@@ -43,7 +43,100 @@ function cargarProductos(productosElegidos) {
     actualizarBotonesAgregar();
 }
 
+const botonBebidas = document.querySelector("#categoria-bebidas"); // Selecciona el botón de Bebidas
 
+botonBebidas.addEventListener("click", () => { // Agrega un evento de clic al botón de Bebidas
+    const productosMostrados = [];
+    
+    for (let i = 01; i <= 07; i++) {
+        const producto = productos.find(producto => producto.id === ("0" + i).slice(-2)); // Busca el producto con el ID correspondiente
+        
+        if (producto) {
+            productosMostrados.push(producto); // Agrega el producto al arreglo de productos mostrados
+        }
+    }
+    
+    cargarProductos(productosMostrados); // Carga los productos en el contenedor de productos
+});
+const botonMakis = document.querySelector("#categoria-makis"); // Selecciona el botón de Makis
+
+botonMakis.addEventListener("click", () => { // Agrega un evento de clic al botón de Makis
+    const productosMostrados = [];
+    
+    for (let i = 8; i <= 23; i++) {
+        const producto = productos.find(producto => producto.id === ("0" + i).slice(-2)); // Busca el producto con el ID correspondiente
+        
+        if (producto) {
+            productosMostrados.push(producto); // Agrega el producto al arreglo de productos mostrados
+        }
+    }
+    
+    cargarProductos(productosMostrados); // Carga los productos en el contenedor de productos
+});
+
+const botonNigiri = document.querySelector("#categoria-nigiris"); // Selecciona el botón de nigiris
+
+botonNigiri.addEventListener("click", () => { // Agrega un evento de clic al botón de nigiris
+    const productosMostrados = [];
+    
+    for (let i = 24; i <= 26; i++) {
+        const producto = productos.find(producto => producto.id === ("0" + i).slice(-2)); // Busca el producto con el ID correspondiente
+        
+        if (producto) {
+            productosMostrados.push(producto); // Agrega el producto al arreglo de productos mostrados
+        }
+    }
+    
+    cargarProductos(productosMostrados); // Carga los productos en el contenedor de productos
+});
+
+
+
+const botonFritos = document.querySelector("#categoria-fritos"); // Selecciona el botón de fritos
+botonFritos.addEventListener("click", () => { // Agrega un evento de clic al botón de fritos
+    const productosMostrados = [];
+    
+    for (let i = 28; i <= 32; i++) {
+        const producto = productos.find(producto => producto.id === ("0" + i).slice(-2)); // Busca el producto con el ID correspondiente
+        
+        if (producto) {
+            productosMostrados.push(producto); // Agrega el producto al arreglo de productos mostrados
+        }
+    }
+    
+    cargarProductos(productosMostrados); // Carga los productos en el contenedor de productos
+});
+
+const botonPlatosElab = document.querySelector("#categoria-platos-elaborados"); // Selecciona el botón de platos elaboradoss
+botonPlatosElab.addEventListener("click", () => { // Agrega un evento de clic al botón de platos elaborados
+    const productosMostrados = [];
+    
+    for (let i = 33; i <= 38; i++) {
+        const producto = productos.find(producto => producto.id === ("0" + i).slice(-2)); // Busca el producto con el ID correspondiente
+        
+        if (producto) {
+            productosMostrados.push(producto); // Agrega el producto al arreglo de productos mostrados
+        }
+    }
+    
+    cargarProductos(productosMostrados); // Carga los productos en el contenedor de productos
+});
+
+
+const botontodos = document.querySelector("#categoria-todos"); // Selecciona el botón de todos los productos
+botontodos.addEventListener("click", () => { // Agrega un evento de clic al botón de todos los productos
+    const productosMostrados = [];
+    
+    for (let i = 01; i <= 38; i++) {
+        const producto = productos.find(producto => producto.id === ("0" + i).slice(-2)); // Busca el producto con el ID correspondiente
+        
+        if (producto) {
+            productosMostrados.push(producto); // Agrega el producto al arreglo de productos mostrados
+        }
+    }
+    
+    cargarProductos(productosMostrados); // Carga los productos en el contenedor de productos
+});
 /*Actualiza los botones de "añadir al carrito" en la página cada vez que se agregue un producto al carrito. */
 function actualizarBotonesAgregar() {
     botonesAgregar = document.querySelectorAll(".producto-agregar");

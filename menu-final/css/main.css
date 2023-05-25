@@ -50,6 +50,11 @@ aside {
     font-weight: 400;
     font-size: 1.3rem;
 }
+.logoP{
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
 
 .menu {
     display: flex;
@@ -78,6 +83,7 @@ aside {
     border-bottom-left-radius: 1rem;
     position: relative;
 }
+
 
 .boton-menu.active::before {
     content: '';
@@ -374,9 +380,17 @@ p#carrito-vacio.carrito-vacio{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;
+        background-color: var(--clr-main);
+        z-index: 9;
     }
 
     .header-mobile .logo {
+        color: var(--clr-gray);
+    }
+
+    .header-mobile .logoP {
         color: var(--clr-gray);
     }
 

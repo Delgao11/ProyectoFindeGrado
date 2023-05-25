@@ -14,29 +14,38 @@
 
     // Verifica que ambos campos hayan sido completados
     if (!empty($codigo) && !empty($password)) {
-      // Busca la mesa en la base de datos con el código ingresado por el usuario
-      $query = "SELECT * FROM mesas WHERE codigo = '$codigo'";
-      $result = mysqli_query($conn, $query);
-
-      // Verifica si la consulta devolvió alguna fila
-      if (mysqli_num_rows($result) > 0) {
-        // La mesa existe, verifica si la contraseña es correcta
-        $row = mysqli_fetch_assoc($result);
-        if ($row["password"] == $password) {
-          // La contraseña es correcta, redirige al usuario al index.php
-          session_start(); // Inicia la sesión
-          $_SESSION["codigo_mesa"] = $codigo; // Crea la variable de sesión con el código de mesa
-          header("Location: index.php");
-          exit();
-        } else {
-          // La contraseña es incorrecta, establece el tipo y mensaje de error
-          $tipoMensaje = "error";
-          $mensaje = "Contraseña incorrecta";
-        }
+      if ($codigo == "admin" && $password == "admin123") {
+        // Es un administrador, redirige al usuario a pedidos.php
+        session_start(); // Inicia la sesión
+        $_SESSION["codigo_mesa"] = $codigo; // Crea la variable de sesión con el código de mesa
+        header("Location: pedidos.php");
+        exit();
       } else {
-        // La mesa no existe, establece el tipo y mensaje de error
-        $tipoMensaje = "error";
-        $mensaje = "Código de mesa incorrecto";
+        // Busca la mesa en la base de datos con el código ingresado por el usuario
+        $query = "SELECT * FROM mesas WHERE codigo = '$codigo'";
+        $result = mysqli_query($conn, $query);
+
+        // Verifica si la consulta devolvió alguna fila
+        if (mysqli_num_rows($result) > 0) {
+          // La mesa existe, verifica si la contraseña es correcta
+          $row = mysqli_fetch_assoc($result);
+
+          if ($row["password"] == $password) {
+            // Es una mesa, redirige al usuario a index.php
+            session_start(); // Inicia la sesión
+            $_SESSION["codigo_mesa"] = $codigo; // Crea la variable de sesión con el código de mesa
+            header("Location: index.php");
+            exit();
+          } else {
+            // La contraseña es incorrecta, establece el tipo y mensaje de error
+            $tipoMensaje = "error";
+            $mensaje = "Contraseña incorrecta";
+          }
+        } else {
+          // La mesa no existe, establece el tipo y mensaje de error
+          $tipoMensaje = "error";
+          $mensaje = "Código de mesa incorrecto";
+        }
       }
     } else {
       // Si alguno de los campos está vacío, establece el tipo y mensaje de error

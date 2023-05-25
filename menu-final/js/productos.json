@@ -188,64 +188,60 @@
     },
     {
         "id": "30",
-        "titulo": "SOPA MISO",
-        "imagen": "./img/resto/sopamiso.jpg",
-        "precio": 4
+        "titulo": "ARROZ FRITO",
+        "imagen": "./img/resto/arrozfrito.jpg",
+        "precio": 3
     },
+    
 
     {
         "id": "31",
-        "titulo": "RAMEN",
-        "imagen": "./img/resto/ramen.jpeg",
-        "precio": 6
-    },
-  
-    {
-        "id": "32",
         "titulo": "KATSU DE POLLO",
         "imagen": "./img/resto/Katsu-de-pollo.jpg",
         "precio": 3
     },
 
     {
-        "id": "33",
+        "id": "32",
         "titulo": "PAN BAO 4uds",
         "imagen": "./img/resto/Receta-de-pan-Baozi-min.jpg",
         "precio": 3
     },
     {
-        "id": "34",
-        "titulo": "ARROZ FRITO",
-        "imagen": "./img/resto/arrozfrito.jpg",
-        "precio": 3
+        "id": "33",
+        "titulo": "RAMEN",
+        "imagen": "./img/resto/ramen.jpeg",
+        "precio": 6
     },
+  
+   
     {
-        "id": "35",
+        "id": "34",
         "titulo": "SASHIMI SALMON",
         "imagen": "./img/resto/plato-sashimi-salmon.png",
         "precio": 6
     },
 
     {
-        "id": "36",
+        "id": "35",
         "titulo": "SASHIMI ATÚN",
         "imagen": "./img/resto/sashimi-atun.jpg",
         "precio": 6
     },
     {
-        "id": "37",
+        "id": "36",
         "titulo": "TARTAR DE ATÚN",
         "imagen": "./img/resto/tartar-de-atun.jpg",
         "precio": 12.50
     },
     {
-        "id": "38",
+        "id": "37",
         "titulo": "TARTAR DE SALMON",
         "imagen": "./img/resto/tartardeSalmon.jpg",
         "precio": 12.50
     },
     {
-        "id": "39",
+        "id": "38",
         "titulo": "SUSHICHET 40uds",
         "imagen": "./img/resto/sushichet40ud.jpg",
         "precio": 35

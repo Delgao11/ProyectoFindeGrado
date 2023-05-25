@@ -9,6 +9,8 @@ let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
 const botonVaciar = document.querySelector("#carrito-acciones-vaciar");
 const contenedorTotal = document.querySelector("#total");
 const botonComprar = document.querySelector("#carrito-acciones-comprar");
+const contenedorPedidoAnterior = document.querySelector("#producto-anteriores");
+let pedidoanterior = [];
 
 /*  Es la encargada de cargar los productos en la lista del carrito si hay productos almacenados en el almacenamiento local. 
     Si no hay productos, se muestran los elementos del carrito vacío.*/
@@ -100,6 +102,7 @@ function eliminarProducto(index) {
 }
 
 function vaciarCarrito() {
+    
     Swal.fire({
         title: '¿Estás seguro?',
         text: "Se vaciará todo el carrito",
@@ -138,82 +141,67 @@ function calcularTotal() {
 }
 
 botonComprar.addEventListener("click", () => {
-    Swal.fire({
-        title: 'Ingrese el número de la mesa',
-        input: 'number',
-        inputAttributes: {
-            min: 1,
-            max: 15
-        },
-        showCancelButton: true,
-        confirmButtonText: 'PEDIR',
-        cancelButtonText: 'Cancelar',
-        showLoaderOnConfirm: true,
-        preConfirm: (mesa) => {
-            if (mesa) {
-                const formData = new FormData();
-                formData.append("productos", JSON.stringify(productosEnCarrito));
-                formData.append("mesa", mesa);
+  Swal.fire({
+      title: 'Ingrese el número de la mesa',
+      input: 'number',
+      inputAttributes: {
+          min: 1,
+          max: 15
+      },
+      showCancelButton: true,
+      confirmButtonText: 'PEDIR',
+      cancelButtonText: 'Cancelar',
+      showLoaderOnConfirm: true,
+      preConfirm: (mesa) => {
+          if (mesa) {
+              const formData = new FormData();
+              formData.append("productos", JSON.stringify(productosEnCarrito));
+              formData.append("mesa", mesa);
 
-                return fetch("carrito.php", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(response.statusText);
-                    }
-                    return response.text();
-                })
-                .catch(error => {
-                    Swal.showValidationMessage(
-                        `Request failed: ${error}`
-                    );
-                });
-            }
-        },
-        allowOutsideClick: () => !Swal.isLoading()
-    }).then((result) => {
-        if (result.isConfirmed) {
-            if (result.value.trim() === "success") {
-                Swal.fire(
-                    'Compra realizada',
-                    'Su pedido se ha enviado correctamente',
-                    'success'
-                ).then(() => {
-                    productosEnCarrito = [];
-                    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-                    cargarProductosCarrito();
-                    window.location.href = 'index.php'; // Redireccionar a index.php
-                });
-            } else if (result.value.trim() === "Carrito vacío") {
-                Swal.fire(
-                    'Carrito vacío',
-                    'No hay productos en el carrito',
-                    'info'
-                ).then(() => {
-                    productosEnCarrito = [];
-                    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-                    cargarProductosCarrito();
-                    window.location.href = 'index.php'; // Redireccionar a index.php
-                });
-            } else {
-                Swal.fire({
-                    title: 'Pedido Realizado',
-                    text: `Espera sentado a tu pedido:`,
-                    icon: 'success',
-                    backdrop: true,
-                    showConfirmButton: true,
-                    confirmButtonText: 'Aceptar'
-                }).then(() => {
-                    localStorage.removeItem('productos-en-carrito'); // Eliminar los productos del carrito del localStorage
-                    cargarProductosCarrito(); // Actualizar la visualización del carrito (opcional)
-                    window.location.href = 'index.php'; // Redireccionar a la página deseada después de aceptar
-                });
-                  
-            }
-        }
-    });
+              return fetch("carrito.php", {
+                  method: "POST",
+                  body: formData
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error(response.statusText);
+                  }
+                  return response.text();
+              })
+              .catch(error => {
+                  Swal.showValidationMessage(
+                      `Request failed: ${error}`
+                  );
+              });
+          }
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+  }).then((result) => {
+      if (result.value.trim() === "success") {
+          Swal.fire(
+              'Compra realizada',
+              'Su pedido se ha enviado correctamente',
+              'success'
+          ).then(() => {
+              localStorage.removeItem('productos-en-carrito'); // Eliminar los productos del carrito del localStorage
+              cargarProductosCarrito(); // Actualizar la visualización del carrito (opcional)
+              window.location.href = 'pedidos.php'; // Redireccionar a la página deseada después de aceptar
+          });
+      } else {
+          Swal.fire({
+              title: 'Pedido Realizado',
+              text: `Espera sentado a tu pedido:`,
+              icon: 'success',
+              backdrop: true,
+              showConfirmButton: true,
+              confirmButtonText: 'Aceptar'
+          }).then(() => {
+              localStorage.removeItem('productos-en-carrito'); // Eliminar los productos del carrito del localStorage
+              cargarProductosCarrito(); // Actualizar la visualización del carrito (opcional)
+              window.location.href = 'index.php'; // Redireccionar a la página deseada después de aceptar
+          });
+      }
+  });
 });
 
 

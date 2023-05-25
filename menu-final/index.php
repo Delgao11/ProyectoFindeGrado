@@ -45,18 +45,50 @@
                 <h1 class="logo">Menú Urasawa</h1>
             </header>
             <nav>
-                <ul class="menu">
-                    <li>
-                        <button id="todos" class="boton-menu boton-categoria active"><i
-                                class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
-                    </li>
-                    <li>
-                        <a class="boton-menu boton-carrito" href="./carrito.php">
-                            <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+    <ul class="menu">
+        <li>
+            <button id="categoria-bebidas" class="boton-menu boton-categoria active">
+                <i class="bi bi-hand-index-thumb-fill"></i> Bebidas
+            </button>
+        </li>
+        <li>
+            <button id="categoria-makis" class="boton-menu boton-categoria active">
+                <i class="bi bi-hand-index-thumb-fill"></i> Makis
+            </button>
+        </li>
+        <li>
+            <button id="categoria-nigiris" class="boton-menu boton-categoria active">
+                <i class="bi bi-hand-index-thumb-fill"></i> Nigiris
+            </button>
+        </li>
+        <li>
+            <button id="categoria-fritos" class="boton-menu boton-categoria active">
+                <i class="bi bi-hand-index-thumb-fill"></i> Fritos
+            </button>
+        </li>
+        <li>
+            <button id="categoria-platos-elaborados" class="boton-menu boton-categoria active">
+                <i class="bi bi-hand-index-thumb-fill"></i> Platos Elaborados
+            </button>
+        </li>
+        <li>
+            <button id="categoria-todos" class="boton-menu boton-categoria active">
+                <i class="bi bi-hand-index-thumb-fill"></i> Todos los Productos
+            </button>
+        </li>
+        
+        <li>
+            <a class="boton-menu boton-categoria active-carrito" href="./carrito.php">
+                <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
+            </a>
+        </li>
+        <li>
+            <a class="boton-menu boton-categoria active-pedido" href="./pedidos.php">
+                <i class="bi bi-cart-fill"></i> Pedidos <span id="numerito" class="numerito">0</span>
+            </a>
+        </li>
+    </ul>
+</nav>
             <footer>
                 <p class="texto-footer">© 2023 Menú Urasawa</p>
             </footer>
