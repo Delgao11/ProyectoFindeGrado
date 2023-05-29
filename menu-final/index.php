@@ -84,9 +84,10 @@
         </li>
         <li>
             <a class="boton-menu boton-categoria active-pedido" href="./pedidos.php">
-                <i class="bi bi-cart-fill"></i> Pedidos <span id="numerito" class="numerito">0</span>
+                <i class="bi bi-cart-fill"></i> Pedidos Anteriores<span id="numerito" class="numerito">0</span>
             </a>
         </li>
+           
     </ul>
 </nav>
             <footer>

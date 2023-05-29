@@ -134,7 +134,7 @@ echo $response; // Devolver la respuesta al cliente
                     </div>
                 </div>
 
-                <?php var_dump($_SESSION); ?>
+              
 
                 <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por tu pedido. <i class="bi bi-emoji-laughing"></i></p>
 

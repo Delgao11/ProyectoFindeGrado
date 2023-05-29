@@ -18,7 +18,7 @@
         // Es un administrador, redirige al usuario a pedidos.php
         session_start(); // Inicia la sesión
         $_SESSION["codigo_mesa"] = $codigo; // Crea la variable de sesión con el código de mesa
-        header("Location: pedidos.php");
+        header("Location: pedidosAdmin.php");
         exit();
       } else {
         // Busca la mesa en la base de datos con el código ingresado por el usuario
