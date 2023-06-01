@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --login-bg:#f8f3ff;
+    --title-bg: #9089cc;
+    --button-bg: #674baf;
+    --light-pink: #e882e8;
+    --image-bg:  #eadbff ;
+    --clr-main: #4b33a8;
+    --clr-main-light: #785ce9;
+    --clr-white: #ececec;
+    --clr-gray: #e2e2e2;
+    --clr-red: #961818;
+}
+
+
+.input {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    padding: .5rem;
+    border-radius: 1rem;
+    margin-top: -1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .20rem;
+    margin-right: 13.5rem;
+}
+.filtro-mesas {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 4%;
+    border-radius: 10%;
+  }
+  
+  .filtro-mesas h3 {
+    font-size: 16px;
+    color: var(--clr-main);
+    font-weight: bold;
+    margin-bottom: 5px;
+    
+  }
+  
+  .filtro-mesas form {
+    margin-top: 10px;
+
+  }
+  
+  .filtro-pedidos {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10%;
+  }
+  
+  .filtro-pedidos h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: var(--clr-main);
+    font-weight: bold;
+    
+  }
+  
+  .filtro-pedidos form {
+    margin-top: 10px;
+    border-color: var(--clr-main);
+  }
+  
+  .filtro-pedidos select {
+    margin-right: 10px;
+  }
+  
+  .filtro-pedidos select {
+    /* Estilos generales del select */
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: var(--clr-main);
+  }
+  
+  .filtro-pedidos option {
+    /* Estilos específicos de los options */
+    padding: 5px;
+  }
+
+  .filtro-pedidos input[type="submit"] {
+    /* Estilos específicos del input de tipo submit */
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: var(--clr-main);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .filtro-mesas input[type="submit"] {
+    /* Estilos específicos del input de tipo submit */
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: var(--clr-main);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .filtro-pedidos input[type="submit"]:hover {
+    /* Estilos al pasar el cursor por encima del input de tipo submit */
+    background-color: #0069d9;
+  }
+  
+  
+.pedido-realizado {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 5%;
+    border-radius: 10%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pedido-realizado h3 {
+    color: var(--clr-main);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+.pedido-realizado p {
+    color: var(--clr-main);
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.ningun-pedido p {
+    color: var(--clr-main);
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.pedido-realizado p:last-child {
+    margin-bottom: 0;
+}
+
+.pedido-realizado hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+
+ /* Estilos para la tabla */
+ .tabla-pedidos {
+  /* Quita las propiedades flex */
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 5%;
+  border-radius: 10%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pedido {
+  /* Quita la propiedad flex-basis */
+  
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 5%;
+  border-radius: 10%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.pedido strong {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: var(--clr-main);
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.pedido p {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--clr-main);
+  margin: 5px 0;
+}
+p {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--clr-main);
+  margin: 5px 0;
+   margin-top: 5% ;
+}
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: var(--clr-main);
+}
+
+th {
+  background-color: var(--clr-main);;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+input[type="submit"] {
+  padding: 5px 10px;
+  background-color: var(--clr-main);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5%;
+  font-size: 14px;
+}
+
+input[type="submit"]:hover {
+  background-color: white;
+  color:var(--clr-main);
+}
+
+
+select[name="estado_pedido"] {
+  /* Estilos generales del select */
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: var(--clr-main);
+}
+
+select[name="estado_pedido"] option {
+  /* Estilos específicos de los options */
+  padding: 5px;
+}
+
+.boton-borrar-pedido {
+  padding: 5px 10px;
+  background-color: var(--clr-main);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5%;
+  margin-left: 65px;
+  margin-top: 3%;
+}
